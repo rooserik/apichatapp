@@ -21,21 +21,21 @@ const app = feathers()
 MongoClient.connect('mongodb://localhost:27017/feathers-demo').then(function(db){
   // Connect to the db, create and register a Feathers service.
 
-  app.use('/generals', service({
-    Model: db.collection('generals'),
+  app.use('/todos', service({
+    Model: db.collection('todos'),
     paginate: {
       default: 100,
       max: 100
     }
   }));
 
-  app.use('/gossips', service({
-    Model: db.collection('gossips'),
-    paginate: {
-      default: 100,
-      max: 100
-    }
-  }));
+  // app.use('/gossips', service({
+  //   Model: db.collection('gossips'),
+  //   paginate: {
+  //     default: 100,
+  //     max: 100
+  //   }
+  // }));
 
   // A basic error handler, just like Express
   // app.use(errors.handler());
